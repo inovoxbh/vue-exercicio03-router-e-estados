@@ -17,7 +17,7 @@
         name: 'App',
         computed: {
             qtdeProdutos() {
-              return this.$store.qtdeProdutos;
+                return this.$store.state.products.length;
             }
         }        
     }

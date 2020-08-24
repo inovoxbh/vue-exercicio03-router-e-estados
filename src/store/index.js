@@ -32,10 +32,5 @@ export const store = new Vuex.Store({
         addProduct({ commit }, product) {
             commit('addProduct', product);
         }
-    },        
-    computed: {
-        qtdeProdutos() {
-            return this.state.products.length;
-        }
     }
 });

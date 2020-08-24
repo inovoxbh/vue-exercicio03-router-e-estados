@@ -1,6 +1,6 @@
 <template>
-    <div>
-        <h1>Cadastro de Produtos</h1>
+    <div class="centered">
+        <h1 class="display-4">Cadastro de Produtos</h1>
         <p>Bem vindo ao cadastro de produtos.</p>
     </div>
 </template>
@@ -10,3 +10,4 @@
         name: 'AddProduct'
     };
 </script>
+

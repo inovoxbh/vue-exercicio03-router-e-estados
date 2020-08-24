@@ -1,12 +1,12 @@
 <template>
-    <article>
-        <h1>Produtos</h1>
-        <ul>
-            <li v-for="product in this.$store.state.products" v-bind:key="product.name">
+    <div class="centered">
+        <h1 class="display-4">Produtos Cadastrados</h1>
+        <ul class="list-group">
+            <li v-for="product in this.$store.state.products" v-bind:key="product.name" class="list-group-item">
                 <ProductItem :item="product"/>
             </li>
         </ul>
-    </article>
+    </div>
 </template>
 
 <script>

@@ -1,26 +1,27 @@
 <template>
-    <div>
-        {{mensagemErroTamanhoNome}}
+    <div class="centered">
+        <p v-if="mensagemErroTamanhoNome !== undefined && mensagemErroTamanhoNome !== '' && mensagemErroTamanhoNome !== ''" class="alert alert-warning">{{mensagemErroTamanhoNome}}</p>
         <form @submit="addProduct">
-            <p>
+            <div class="form-group" @change="changeHandle">
                 <label>Nome:</label>
-                <input type="text" v-model="Name">
-            </p>
+                <input type="text" v-model="Name" class="form-control">
+            </div>
 
-            <p>
+            <div class="form-group">
                 <label>Preço:</label>
-                <input type="text" v-model="Price">
-            </p>
+                <input type="text" v-model="Price" class="form-control">
+            </div>
 
-            <p>
+            <div class="form-group">
                 <label>Unidade Medida:</label>
-                <input type="text" v-model="Unit">
-            </p>
+                <input type="text" v-model="Unit" class="form-control">
+            </div>
 
-            <button type="submit" :disabled="isNameLimitExceeded">Cadastrar</button>
+            <button type="submit" :disabled="isNameLimitExceeded && 1===1" class="btn btn-success">Cadastrar</button>
         </form>
-
-        <p>{{Name}} por apenas {{Price}} cada {{Unit}}.</p>
+        <br>
+        <p v-if="mensagemFeedback !== undefined && mensagemFeedback !== '' && mensagemFeedback !== ''" class="alert alert-success">{{mensagemFeedback}}</p>
+        
     </div>
 </template>
 
@@ -33,7 +34,8 @@
                 Price: "",
                 Unit: "",
                 isNameLimitExceeded: false,
-                mensagemErroTamanhoNome: ""
+                mensagemErroTamanhoNome: "",
+                mensagemFeedback: ""
             }
         },
         watch: {
@@ -55,18 +57,11 @@
                     price: this.Price,
                     unit: this.Unit
                 })
+                this.mensagemFeedback = "Produto inserido com sucesso!"
+            },
+            changeHandle(){
+                this.mensagemFeedback = ""
             }
         }
     };
 </script>
-
-<style>
-#app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>

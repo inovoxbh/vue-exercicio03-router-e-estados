@@ -1,13 +1,17 @@
 <template>
-    <div id="app">
-        <nav>
-            <ul>
-                <li><router-link to="/">Home</router-link></li>
-                <li><router-link to="/addproduct">Adicionar</router-link></li>
-                <li><router-link to="/products">Produtos</router-link></li>
-            </ul>
+    <div class="container.fluid">
+        <nav id="app" class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active"><router-link class="nav-link" to="/">Home</router-link></li>
+                    <li class="nav-item active"><router-link class="nav-link" to="/addproduct">Adicionar</router-link></li>
+                    <li class="nav-item active"><router-link class="nav-link" to="/products">Produtos</router-link></li>
+                </ul>
+            </div>
         </nav>
-        <p> Total de produtos já inseridos: {{qtdeProdutos}} </p>
+        <div class="jumbotron centered">
+            <p class="lead"> Total de produtos já inseridos: {{qtdeProdutos}} </p>
+        </div>
         <router-view />
     </div>
 </template>
@@ -24,26 +28,14 @@
 </script>
 
 <style>
-    #app {
-    font-family: Avenir, Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-align: center;
-    color: #2c3e50;
-    margin-top: 60px;
+    a:hover {
+        background-color: gray
     }
 
-    h1 {
-        color: darkgreen;
-        font-weight: bold;
+    .centered {
+        width: 600px;
+        margin: 0 auto;
+        padding: 30px;
     }
-
-    p {
-        color: black;
-    }
-
-    ul{
-        list-style-type:none;
-    }
-
+    
 </style>

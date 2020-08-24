@@ -25,15 +25,11 @@ export const store = new Vuex.Store({
     },
     mutations: {
         addProduct(state, product) {
-            console.log('produto recebido na mutation')
-            console.log(product)
             state.products = state.products.concat(product);
         }
     },
     actions: {
         addProduct({ commit }, product) {
-            console.log('produto recebido')
-            console.log(product)
             commit('addProduct', product);
         }
     }

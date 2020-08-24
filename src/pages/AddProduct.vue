@@ -1,7 +1,7 @@
 <template>
     <div>
         {{mensagemErroTamanhoNome}}
-        <form @submit="onFormSubmit">
+        <form @submit="addProduct">
             <p>
                 <label>Nome:</label>
                 <input type="text" v-model="Name">
@@ -27,10 +27,7 @@
 
 <script>
     export default {
-        name: 'ProductForm',
-        props: {
-            addProduct: Function
-        },
+        name: 'AddProduct',
         data () {
             return {
                 Name: "",
@@ -52,10 +49,9 @@
             }
         },
         methods: {
-            onFormSubmit(e) {
+            addProduct(e) {
                 e.preventDefault();
-
-                this.addProduct({
+                this.$store.dispatch('addProduct', {
                     Name: this.Name,
                     Price: this.Price,
                     Unit: this.Unit

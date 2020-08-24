@@ -2,4 +2,4 @@
 
 ## VUE
 
-Exercício 02 - Formulários, Computed e Watched properties.
+Exercício 03 - Vue Router e gerenciamento de estados com Vuex.

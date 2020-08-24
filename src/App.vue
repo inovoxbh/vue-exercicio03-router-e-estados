@@ -1,67 +1,25 @@
 <template>
     <div id="app">
-        <h1>Cadastro de Produtos</h1>
-        <ProductForm :addProduct="addProduct" />
+        <nav>
+            <ul>
+                <li><router-link to="/">Home</router-link></li>
+                <li><router-link to="/addproduct">Adicionar</router-link></li>
+                <li><router-link to="/products">Produtos</router-link></li>
+            </ul>
+        </nav>
         <p> Total de produtos já inseridos: {{qtdeProdutos}} </p>
-        <ProductsList :products="products"/>
+        <router-view />
     </div>
 </template>
 
 <script>
-    import ProductsList from './components/ProductsList';
-    import ProductForm from './components/ProductForm';
-
     export default {
         name: 'App',
-        components: {
-            ProductsList,
-            ProductForm
-        },
-        methods: {
-            addProduct (product) {
-              this.products = this.products.concat({
-                  name: product.Name,
-                  price: product.Price,
-                  unit: product.Unit
-              });
-            }
-        },        
         computed: {
             qtdeProdutos() {
-              return this.products.length;
+              return this.$store.qtdeProdutos;
             }
-        },        
-        data() {
-            return {
-                products: [
-                    { 
-                      name: "Batata",
-                      price: 2.80,
-                      unit: "KG"
-                    },
-                    { 
-                      name: "Cenoura",
-                      price: 1.70,
-                      unit: "KG"
-                    },
-                    { 
-                      name: "Ovos",
-                      price: 10.00,
-                      unit: "DZ"
-                    },
-                    { 
-                      name: "Refrigerante",
-                      price: 6.45,
-                      unit: "PET"
-                    },
-                    { 
-                      name: "Pão",
-                      price: 0.10,
-                      unit: "UN"
-                    }
-                ]
-            }
-        }
+        }        
     }
 </script>
 

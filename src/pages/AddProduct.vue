@@ -5,7 +5,6 @@
             <p>
                 <label>Nome:</label>
                 <input type="text" v-model="Name">
-                {{firstNameError}}
             </p>
 
             <p>
@@ -52,9 +51,9 @@
             addProduct(e) {
                 e.preventDefault();
                 this.$store.dispatch('addProduct', {
-                    Name: this.Name,
-                    Price: this.Price,
-                    Unit: this.Unit
+                    name: this.Name,
+                    price: this.Price,
+                    unit: this.Unit
                 })
             }
         }
